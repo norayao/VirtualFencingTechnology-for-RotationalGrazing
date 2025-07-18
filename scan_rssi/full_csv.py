@@ -5,14 +5,17 @@ import os
 from bleak import BleakScanner
 
 # ===== User Parameters =====
-TARGET_NAME = "Pinkie_Pie"
-MEASURE_COUNT = 50
-MEASURE_INTERVAL = 0.5
+TARGET_NAME = "" # BLE id
+MEASURE_COUNT = 50 # times of scan
+MEASURE_INTERVAL = 0.1 # scan interval
 grid = input("Enter the grid with space, like 2 2: ")  # Manual input for location grid
 grid = grid.replace(" ", ",")
 
 # ===== CSV File Path =====
-csv_path = "./rssi_measurements_z5593964.csv"
+grid_point = "" # like 16_8
+recorder_id = "" # z_id
+csv_path = f"./rssi_measurements_{recorder_id}_{grid_point}.csv"
+
 
 async def measure_rssi():
     print(f"\n[INFO] Measuring RSSI from {TARGET_NAME} ({MEASURE_COUNT} attempts at grid {grid})...\n")
